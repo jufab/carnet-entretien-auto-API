@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="carnet-entretien-auto-API:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="carnet-entretien-auto-API.war">
+      <element id="artifact" artifact-name="carnet-entretien-auto-API:war exploded" />
+    </root>
+  </artifact>
+</component>

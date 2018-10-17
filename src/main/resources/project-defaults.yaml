@@ -1,0 +1,38 @@
+swarm:
+#  jaeger:
+#    service-name: demo
+#    agent-host: localhost
+#    agent-port: 5775
+#    sampler-type: const
+#    sampler-parameter: 1
+#  management:
+#    security-realms:
+#      ManagementRealm:
+#        in-memory-authentication:
+#          users:
+#            admin:
+#              password: password
+#    http-interface-management-interface:
+#      allowed-origins:
+#        - http://127.0.0.1:${env.LEPORT:7070}
+#      security-realm: ManagementRealm
+  logging: ${env.NIVEAU:DEBUG}
+  http:
+    port: ${env.LEPORT:7070}
+  cdi: development-mode
+  datasources:
+    jdbc-drivers:
+      h2:
+        driver-class-name: org.h2.Driver
+        xa-datasource-class-name: org.h2.jdbcx.JdbcDataSource
+        driver-module-name: com.h2database.h2
+    data-sources:
+      uneDatasource:
+        driver-name: h2
+        connection-url: jdbc:h2:~/test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+        user-name: sa
+        password: sa
+
+
+
+

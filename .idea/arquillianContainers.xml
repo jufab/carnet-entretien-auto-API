@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArquillianContainersManager">
+    <container containerId="container.arquillian.manual" name="Manual container configuration">
+      <exist-library name="Maven: org.springframework.data:spring-data-commons:2.1.1.RELEASE" level="project" />
+      <exist-library name="Maven: org.springframework.data:spring-data-jpa:2.1.1.RELEASE" level="project" />
+      <exist-library name="Maven: org.springframework:spring-aop:5.1.1.RELEASE" level="project" />
+      <exist-library name="Maven: org.springframework:spring-beans:5.1.1.RELEASE" level="project" />
+      <exist-library name="Maven: org.springframework:spring-context:5.1.1.RELEASE" level="project" />
+      <exist-library name="Maven: org.springframework:spring-core:5.1.1.RELEASE" level="project" />
+      <exist-library name="Maven: org.springframework:spring-expression:5.1.1.RELEASE" level="project" />
+      <exist-library name="Maven: org.springframework:spring-jcl:5.1.1.RELEASE" level="project" />
+      <exist-library name="Maven: org.springframework:spring-jdbc:5.1.1.RELEASE" level="project" />
+      <exist-library name="Maven: org.springframework:spring-orm:5.1.1.RELEASE" level="project" />
+      <exist-library name="Maven: org.springframework:spring-tx:5.1.1.RELEASE" level="project" />
+      <exist-library name="Maven: io.thorntail:spring:2.2.0.Final" level="project" />
+    </container>
+  </component>
+</project>
