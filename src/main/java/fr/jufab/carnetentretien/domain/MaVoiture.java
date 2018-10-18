@@ -1,8 +1,11 @@
 package fr.jufab.carnetentretien.domain;
 
+import com.oracle.webservices.internal.api.databinding.DatabindingMode;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
 
 @Entity
 public class MaVoiture {
