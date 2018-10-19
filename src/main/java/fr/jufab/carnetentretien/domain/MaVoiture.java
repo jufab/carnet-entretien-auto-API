@@ -1,7 +1,5 @@
 package fr.jufab.carnetentretien.domain;
 
-import com.oracle.webservices.internal.api.databinding.DatabindingMode;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -31,27 +29,27 @@ public class MaVoiture {
 
 
     @OneToMany(fetch = FetchType.LAZY)
-    public List<CarnetEntretien> mesEntretien;
+    public List<CarnetEntretien> mesEntretiens;
 
     public MaVoiture() {
     }
 
-    public MaVoiture(String modele, int annee, Date dateAchat, ControleTechnique unControleTechnique, MarqueVoiture maMarqueDeVoiture, TypeCarburant typeDeCarburant, List<CarnetEntretien> mesEntretien) {
+    public MaVoiture(String modele, int annee, Date dateAchat, ControleTechnique unControleTechnique, MarqueVoiture maMarqueDeVoiture, TypeCarburant typeDeCarburant, List<CarnetEntretien> mesEntretiens) {
         this.modele = modele;
         this.annee = annee;
         this.dateAchat = dateAchat;
         this.unControleTechnique = unControleTechnique;
         this.maMarqueDeVoiture = maMarqueDeVoiture;
         this.typeDeCarburant = typeDeCarburant;
-        this.mesEntretien = mesEntretien;
+        this.mesEntretiens = mesEntretiens;
     }
 
-    public List<CarnetEntretien> getMesEntretien() {
-        return mesEntretien;
+    public List<CarnetEntretien> getMesEntretiens() {
+        return mesEntretiens;
     }
 
-    public void setMesEntretien(List<CarnetEntretien> mesEntretien) {
-        this.mesEntretien = mesEntretien;
+    public void setMesEntretiens(List<CarnetEntretien> mesEntretiens) {
+        this.mesEntretiens = mesEntretiens;
     }
 
     public int getId() {

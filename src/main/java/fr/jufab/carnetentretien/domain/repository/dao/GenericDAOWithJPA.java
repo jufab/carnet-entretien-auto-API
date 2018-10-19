@@ -1,4 +1,4 @@
-package fr.jufab.carnetentretien.dao;
+package fr.jufab.carnetentretien.domain.repository.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,7 +14,7 @@ public abstract class GenericDAOWithJPA<T, ID extends Serializable> {
 
     @SuppressWarnings("unchecked")
     public GenericDAOWithJPA() {
-        this.persistentClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        this.persistentClass = (Class<T>) ((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
     }
 
     public Class<T> getPersistentClass() {
@@ -26,10 +26,7 @@ public abstract class GenericDAOWithJPA<T, ID extends Serializable> {
     }
 
     public T persist(T entity) {
-        entityManager.getTransaction().begin();
         entityManager.persist(entity);
-        entityManager.getTransaction().commit();
-        entityManager.close();
         return entity;
     }
 
@@ -43,7 +40,7 @@ public abstract class GenericDAOWithJPA<T, ID extends Serializable> {
 
     @SuppressWarnings("unchecked")
     public List<T> findAll() {
-        return entityManager.createQuery("Select t from " + persistentClass.getSimpleName() + " t").getResultList();
+       return entityManager.createQuery("Select t from " + persistentClass.getSimpleName() + " t").getResultList();
     }
 
     @SuppressWarnings("unchecked")

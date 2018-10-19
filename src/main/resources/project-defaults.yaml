@@ -1,10 +1,10 @@
 swarm:
-#  jaeger:
-#    service-name: demo
-#    agent-host: localhost
-#    agent-port: 5775
-#    sampler-type: const
-#    sampler-parameter: 1
+  jaeger:
+    service-name: demo
+    agent-host: localhost
+    agent-port: 5775
+    sampler-type: const
+    sampler-parameter: 1
 #  management:
 #    security-realms:
 #      ManagementRealm:
@@ -19,7 +19,9 @@ swarm:
   logging: ${env.NIVEAU:DEBUG}
   http:
     port: ${env.LEPORT:7070}
-  cdi: development-mode
+  cdi:
+    development-mode: true
+    require-bean-descriptor: false
   datasources:
     jdbc-drivers:
       h2:
