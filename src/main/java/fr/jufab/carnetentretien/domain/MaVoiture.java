@@ -1,12 +1,14 @@
 package fr.jufab.carnetentretien.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 
 @Entity
-public class MaVoiture {
+public class MaVoiture implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int id;
@@ -44,8 +46,8 @@ public class MaVoiture {
         this.mesEntretiens = mesEntretiens;
     }
 
-    public List<CarnetEntretien> getMesEntretiens() {
-        return mesEntretiens;
+    public Optional<List<CarnetEntretien>> getMesEntretiens() {
+        return Optional.ofNullable(mesEntretiens);
     }
 
     public void setMesEntretiens(List<CarnetEntretien> mesEntretiens) {
@@ -68,8 +70,8 @@ public class MaVoiture {
         this.modele = modele;
     }
 
-    public ControleTechnique getUnControleTechnique() {
-        return unControleTechnique;
+    public Optional<ControleTechnique> getUnControleTechnique() {
+        return Optional.ofNullable(unControleTechnique);
     }
 
     public void setUnControleTechnique(ControleTechnique unControleTechnique) {
@@ -93,19 +95,20 @@ public class MaVoiture {
         this.dateAchat = dateAchat;
     }
 
-    public MarqueVoiture getMaMarqueDeVoiture() {
-        return maMarqueDeVoiture;
+    public Optional<MarqueVoiture> getMaMarqueDeVoiture() {
+        return Optional.ofNullable(maMarqueDeVoiture);
     }
 
     public void setMaMarqueDeVoiture(MarqueVoiture maMarqueDeVoiture) {
         this.maMarqueDeVoiture = maMarqueDeVoiture;
     }
 
-    public TypeCarburant getTypeDeCarburant() {
-        return typeDeCarburant;
+    public Optional<TypeCarburant> getTypeDeCarburant() {
+        return Optional.ofNullable(typeDeCarburant);
     }
 
     public void setTypeDeCarburant(TypeCarburant typeDeCarburant) {
         this.typeDeCarburant = typeDeCarburant;
     }
+
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public abstract class GenericDAOWithJPA<T, ID extends Serializable> {
     private Class<T> persistentClass;
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "MyPU")
     protected EntityManager entityManager;
 
     @SuppressWarnings("unchecked")
@@ -42,6 +42,7 @@ public abstract class GenericDAOWithJPA<T, ID extends Serializable> {
     public List<T> findAll() {
        return entityManager.createQuery("Select t from " + persistentClass.getSimpleName() + " t").getResultList();
     }
+
 
     @SuppressWarnings("unchecked")
     public List<T> findInRange(int firstResult, int maxResults) {

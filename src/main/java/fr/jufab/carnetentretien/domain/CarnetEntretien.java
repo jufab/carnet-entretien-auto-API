@@ -1,10 +1,11 @@
 package fr.jufab.carnetentretien.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class CarnetEntretien {
+public class CarnetEntretien implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -80,4 +81,5 @@ public class CarnetEntretien {
     public void setNombreKmIntervention(int nombreKmIntervention) {
         this.nombreKmIntervention = nombreKmIntervention;
     }
+
 }

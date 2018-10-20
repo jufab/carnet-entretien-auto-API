@@ -1,10 +1,11 @@
 package fr.jufab.carnetentretien.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class Entretien {
+public class Entretien implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -90,4 +91,5 @@ public class Entretien {
     public void setTypeDeCarburant(List<TypeCarburant> typeDeCarburant) {
         this.typeDeCarburant = typeDeCarburant;
     }
+
 }

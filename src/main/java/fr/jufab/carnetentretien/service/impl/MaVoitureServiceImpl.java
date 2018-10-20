@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Transactional
+@ApplicationScoped
 public class MaVoitureServiceImpl implements MaVoitureService{
 
     @Inject
@@ -29,5 +29,10 @@ public class MaVoitureServiceImpl implements MaVoitureService{
     @Override
     public List<MaVoiture> findAll() {
         return maVoitureRepository.findAll();
+    }
+
+    @Override
+    public MaVoiture find(Integer id) {
+        return maVoitureRepository.find(id);
     }
 }

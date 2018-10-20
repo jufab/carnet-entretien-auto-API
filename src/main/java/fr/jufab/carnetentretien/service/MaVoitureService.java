@@ -10,4 +10,6 @@ public interface MaVoitureService {
 
     List<MaVoiture> findAll();
 
+    MaVoiture find(Integer id);
+
 }

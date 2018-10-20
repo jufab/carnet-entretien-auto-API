@@ -1,10 +1,11 @@
 package fr.jufab.carnetentretien.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class MarqueVoiture {
+public class MarqueVoiture implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

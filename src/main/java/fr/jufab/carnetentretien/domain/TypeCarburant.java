@@ -2,10 +2,12 @@ package fr.jufab.carnetentretien.domain;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
-public class TypeCarburant {
+public class TypeCarburant implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -49,16 +51,16 @@ public class TypeCarburant {
         this.carburant = carburant;
     }
 
-    public List<MaVoiture> getMesVoitures() {
-        return mesVoitures;
+    public Optional<List<MaVoiture>> getMesVoitures() {
+        return Optional.ofNullable(mesVoitures);
     }
 
     public void setMesVoitures(List<MaVoiture> mesVoitures) {
         this.mesVoitures = mesVoitures;
     }
 
-    public List<Entretien> getDesEntretiens() {
-        return desEntretiens;
+    public Optional<List<Entretien>> getDesEntretiens() {
+        return Optional.ofNullable(desEntretiens);
     }
 
     public void setDesEntretiens(List<Entretien> desEntretiens) {
