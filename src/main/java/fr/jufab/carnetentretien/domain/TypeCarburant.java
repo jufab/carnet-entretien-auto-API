@@ -4,7 +4,6 @@ package fr.jufab.carnetentretien.domain;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Optional;
 
 @Entity
 public class TypeCarburant implements Serializable {
@@ -15,7 +14,7 @@ public class TypeCarburant implements Serializable {
 
     public String carburant;
 
-    @OneToMany(mappedBy = "typeDeCarburant")
+    @OneToMany(mappedBy = "typeDeCarburant", cascade = CascadeType.ALL, orphanRemoval = true)
     public List<MaVoiture> mesVoitures;
 
 
@@ -51,16 +50,16 @@ public class TypeCarburant implements Serializable {
         this.carburant = carburant;
     }
 
-    public Optional<List<MaVoiture>> getMesVoitures() {
-        return Optional.ofNullable(mesVoitures);
+    public List<MaVoiture> getMesVoitures() {
+        return mesVoitures;
     }
 
     public void setMesVoitures(List<MaVoiture> mesVoitures) {
         this.mesVoitures = mesVoitures;
     }
 
-    public Optional<List<Entretien>> getDesEntretiens() {
-        return Optional.ofNullable(desEntretiens);
+    public List<Entretien> getDesEntretiens() {
+        return desEntretiens;
     }
 
     public void setDesEntretiens(List<Entretien> desEntretiens) {

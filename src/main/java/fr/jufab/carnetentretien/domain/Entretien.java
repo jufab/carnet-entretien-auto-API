@@ -24,18 +24,6 @@ public class Entretien implements Serializable {
     @ManyToMany(mappedBy = "desEntretiens")
     public List<TypeCarburant> typeDeCarburant;
 
-    public Entretien() {
-    }
-
-    public Entretien(String libelle, String commentaire, int nombreAnnee, Integer nombreKmMini, Integer nombreKmMax, List<TypeCarburant> typeDeCarburant) {
-        this.libelle = libelle;
-        this.commentaire = commentaire;
-        this.nombreAnnee = nombreAnnee;
-        this.nombreKmMini = nombreKmMini;
-        this.nombreKmMax = nombreKmMax;
-        this.typeDeCarburant = typeDeCarburant;
-    }
-
     public int getId() {
         return id;
     }
@@ -92,4 +80,15 @@ public class Entretien implements Serializable {
         this.typeDeCarburant = typeDeCarburant;
     }
 
+    public Entretien() {
+    }
+
+    public Entretien(String libelle, String commentaire, int nombreAnnee, Integer nombreKmMini, Integer nombreKmMax, List<TypeCarburant> typeDeCarburant) {
+        this.libelle = libelle;
+        this.commentaire = commentaire;
+        this.nombreAnnee = nombreAnnee;
+        this.nombreKmMini = nombreKmMini;
+        this.nombreKmMax = nombreKmMax;
+        this.typeDeCarburant = typeDeCarburant;
+    }
 }

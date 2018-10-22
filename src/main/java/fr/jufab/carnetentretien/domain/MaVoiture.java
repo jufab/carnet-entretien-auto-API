@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
+
 
 
 @Entity
@@ -22,36 +22,18 @@ public class MaVoiture implements Serializable {
     @OneToOne(fetch = FetchType.LAZY)
     public ControleTechnique unControleTechnique;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     public MarqueVoiture maMarqueDeVoiture;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     public TypeCarburant typeDeCarburant;
 
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "uneVoiture", cascade = CascadeType.ALL,orphanRemoval= true)
     public List<CarnetEntretien> mesEntretiens;
 
     public MaVoiture() {
-    }
-
-    public MaVoiture(String modele, int annee, Date dateAchat, ControleTechnique unControleTechnique, MarqueVoiture maMarqueDeVoiture, TypeCarburant typeDeCarburant, List<CarnetEntretien> mesEntretiens) {
-        this.modele = modele;
-        this.annee = annee;
-        this.dateAchat = dateAchat;
-        this.unControleTechnique = unControleTechnique;
-        this.maMarqueDeVoiture = maMarqueDeVoiture;
-        this.typeDeCarburant = typeDeCarburant;
-        this.mesEntretiens = mesEntretiens;
-    }
-
-    public Optional<List<CarnetEntretien>> getMesEntretiens() {
-        return Optional.ofNullable(mesEntretiens);
-    }
-
-    public void setMesEntretiens(List<CarnetEntretien> mesEntretiens) {
-        this.mesEntretiens = mesEntretiens;
     }
 
     public int getId() {
@@ -70,14 +52,6 @@ public class MaVoiture implements Serializable {
         this.modele = modele;
     }
 
-    public Optional<ControleTechnique> getUnControleTechnique() {
-        return Optional.ofNullable(unControleTechnique);
-    }
-
-    public void setUnControleTechnique(ControleTechnique unControleTechnique) {
-        this.unControleTechnique = unControleTechnique;
-    }
-
     public int getAnnee() {
         return annee;
     }
@@ -85,7 +59,6 @@ public class MaVoiture implements Serializable {
     public void setAnnee(int annee) {
         this.annee = annee;
     }
-
 
     public Date getDateAchat() {
         return dateAchat;
@@ -95,20 +68,45 @@ public class MaVoiture implements Serializable {
         this.dateAchat = dateAchat;
     }
 
-    public Optional<MarqueVoiture> getMaMarqueDeVoiture() {
-        return Optional.ofNullable(maMarqueDeVoiture);
+    public ControleTechnique getUnControleTechnique() {
+        return unControleTechnique;
+    }
+
+    public void setUnControleTechnique(ControleTechnique unControleTechnique) {
+        this.unControleTechnique = unControleTechnique;
+    }
+
+    public MarqueVoiture getMaMarqueDeVoiture() {
+        return maMarqueDeVoiture;
     }
 
     public void setMaMarqueDeVoiture(MarqueVoiture maMarqueDeVoiture) {
         this.maMarqueDeVoiture = maMarqueDeVoiture;
     }
 
-    public Optional<TypeCarburant> getTypeDeCarburant() {
-        return Optional.ofNullable(typeDeCarburant);
+    public TypeCarburant getTypeDeCarburant() {
+        return typeDeCarburant;
     }
 
     public void setTypeDeCarburant(TypeCarburant typeDeCarburant) {
         this.typeDeCarburant = typeDeCarburant;
     }
 
+    public List<CarnetEntretien> getMesEntretiens() {
+        return mesEntretiens;
+    }
+
+    public void setMesEntretiens(List<CarnetEntretien> mesEntretiens) {
+        this.mesEntretiens = mesEntretiens;
+    }
+
+    public MaVoiture(String modele, int annee, Date dateAchat, ControleTechnique unControleTechnique, MarqueVoiture maMarqueDeVoiture, TypeCarburant typeDeCarburant, List<CarnetEntretien> mesEntretiens) {
+        this.modele = modele;
+        this.annee = annee;
+        this.dateAchat = dateAchat;
+        this.unControleTechnique = unControleTechnique;
+        this.maMarqueDeVoiture = maMarqueDeVoiture;
+        this.typeDeCarburant = typeDeCarburant;
+        this.mesEntretiens = mesEntretiens;
+    }
 }

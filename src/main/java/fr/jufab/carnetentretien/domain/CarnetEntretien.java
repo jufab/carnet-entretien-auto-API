@@ -17,7 +17,7 @@ public class CarnetEntretien implements Serializable {
 
     public int nombreKmIntervention;
 
-    @OneToOne
+    @ManyToOne
     public MaVoiture uneVoiture;
 
     @OneToOne
@@ -58,6 +58,14 @@ public class CarnetEntretien implements Serializable {
         this.dateProchainEntretien = dateProchainEntretien;
     }
 
+    public int getNombreKmIntervention() {
+        return nombreKmIntervention;
+    }
+
+    public void setNombreKmIntervention(int nombreKmIntervention) {
+        this.nombreKmIntervention = nombreKmIntervention;
+    }
+
     public MaVoiture getUneVoiture() {
         return uneVoiture;
     }
@@ -73,13 +81,4 @@ public class CarnetEntretien implements Serializable {
     public void setUnEntretien(Entretien unEntretien) {
         this.unEntretien = unEntretien;
     }
-
-    public int getNombreKmIntervention() {
-        return nombreKmIntervention;
-    }
-
-    public void setNombreKmIntervention(int nombreKmIntervention) {
-        this.nombreKmIntervention = nombreKmIntervention;
-    }
-
 }

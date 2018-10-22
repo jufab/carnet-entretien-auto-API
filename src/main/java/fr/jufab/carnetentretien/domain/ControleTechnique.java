@@ -19,15 +19,6 @@ public class ControleTechnique implements Serializable {
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "unControleTechnique")
     public MaVoiture maVoiture;
 
-    public ControleTechnique() {
-    }
-
-    public ControleTechnique(Date date, Date prochainCT, MaVoiture maVoiture) {
-        this.date = date;
-        this.prochainCT = prochainCT;
-        this.maVoiture = maVoiture;
-    }
-
     public int getId() {
         return id;
     }
@@ -57,6 +48,15 @@ public class ControleTechnique implements Serializable {
     }
 
     public void setMaVoiture(MaVoiture maVoiture) {
+        this.maVoiture = maVoiture;
+    }
+
+    public ControleTechnique() {
+    }
+
+    public ControleTechnique(Date date, Date prochainCT, MaVoiture maVoiture) {
+        this.date = date;
+        this.prochainCT = prochainCT;
         this.maVoiture = maVoiture;
     }
 }
