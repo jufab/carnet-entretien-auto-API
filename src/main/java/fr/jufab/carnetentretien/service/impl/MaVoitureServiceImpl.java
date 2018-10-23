@@ -4,13 +4,11 @@ import fr.jufab.carnetentretien.domain.MaVoiture;
 import fr.jufab.carnetentretien.domain.repository.MaVoitureRepository;
 import fr.jufab.carnetentretien.service.MaVoitureService;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@ApplicationScoped
+@Transactional(value = Transactional.TxType.REQUIRES_NEW)
 public class MaVoitureServiceImpl implements MaVoitureService{
 
     @Inject

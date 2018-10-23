@@ -17,7 +17,7 @@ public class CarnetEntretien implements Serializable {
 
     public int nombreKmIntervention;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     public MaVoiture uneVoiture;
 
     @OneToOne

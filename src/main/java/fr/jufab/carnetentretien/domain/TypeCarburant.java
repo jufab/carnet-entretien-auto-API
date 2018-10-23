@@ -14,24 +14,11 @@ public class TypeCarburant implements Serializable {
 
     public String carburant;
 
-    @OneToMany(mappedBy = "typeDeCarburant", cascade = CascadeType.ALL, orphanRemoval = true)
-    public List<MaVoiture> mesVoitures;
-
-
-    @ManyToMany
-    @JoinTable(
-            name = "typecarburant_entretien",
-            joinColumns = @JoinColumn(name = "typecarburant_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "entretien_id", referencedColumnName = "id"))
-    public List<Entretien> desEntretiens;
-
     public TypeCarburant() {
     }
 
-    public TypeCarburant(String carburant, List<MaVoiture> mesVoitures, List<Entretien> desEntretiens) {
+    public TypeCarburant(String carburant) {
         this.carburant = carburant;
-        this.mesVoitures = mesVoitures;
-        this.desEntretiens = desEntretiens;
     }
 
     public int getId() {
@@ -48,21 +35,5 @@ public class TypeCarburant implements Serializable {
 
     public void setCarburant(String carburant) {
         this.carburant = carburant;
-    }
-
-    public List<MaVoiture> getMesVoitures() {
-        return mesVoitures;
-    }
-
-    public void setMesVoitures(List<MaVoiture> mesVoitures) {
-        this.mesVoitures = mesVoitures;
-    }
-
-    public List<Entretien> getDesEntretiens() {
-        return desEntretiens;
-    }
-
-    public void setDesEntretiens(List<Entretien> desEntretiens) {
-        this.desEntretiens = desEntretiens;
     }
 }

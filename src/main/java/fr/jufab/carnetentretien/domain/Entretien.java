@@ -21,7 +21,11 @@ public class Entretien implements Serializable {
 
     public Integer nombreKmMax;
 
-    @ManyToMany(mappedBy = "desEntretiens")
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "typecarburant_entretien",
+            joinColumns = @JoinColumn(name = "typecarburant_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "entretien_id", referencedColumnName = "id"))
     public List<TypeCarburant> typeDeCarburant;
 
     public int getId() {

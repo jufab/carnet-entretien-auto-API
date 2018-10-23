@@ -26,11 +26,11 @@ public class MaVoiture implements Serializable {
     public MarqueVoiture maMarqueDeVoiture;
 
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     public TypeCarburant typeDeCarburant;
 
 
-    @OneToMany(mappedBy = "uneVoiture", cascade = CascadeType.ALL,orphanRemoval= true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "uneVoiture", cascade = CascadeType.ALL,orphanRemoval= true)
     public List<CarnetEntretien> mesEntretiens;
 
     public MaVoiture() {
