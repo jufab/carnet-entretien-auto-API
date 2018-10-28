@@ -1,6 +1,6 @@
 package fr.jufab.carnetentretien.service.impl;
 
-import fr.jufab.carnetentretien.domain.MaVoiture;
+import fr.jufab.carnetentretien.domain.dto.MaVoiture;
 import fr.jufab.carnetentretien.domain.repository.MaVoitureRepository;
 import fr.jufab.carnetentretien.service.MaVoitureService;
 
@@ -8,18 +8,14 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Transactional(value = Transactional.TxType.REQUIRES_NEW)
 public class MaVoitureServiceImpl implements MaVoitureService{
 
     @Inject
     private MaVoitureRepository maVoitureRepository;
 
 
-    /*public MaVoitureServiceImpl(MaVoitureRepository maVoitureRepository) {
-        this.maVoitureRepository = maVoitureRepository;
-    }*/
-
     @Override
+    @Transactional
     public MaVoiture persist(MaVoiture maVoiture) {
         return maVoitureRepository.persist(maVoiture);
     }

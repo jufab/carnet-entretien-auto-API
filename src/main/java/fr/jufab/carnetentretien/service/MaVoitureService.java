@@ -1,6 +1,6 @@
 package fr.jufab.carnetentretien.service;
 
-import fr.jufab.carnetentretien.domain.MaVoiture;
+import fr.jufab.carnetentretien.domain.dto.MaVoiture;
 
 import java.util.List;
 

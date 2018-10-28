@@ -1,7 +1,7 @@
 package fr.jufab.carnetentretien.rest;
 
 
-import fr.jufab.carnetentretien.domain.MaVoiture;
+import fr.jufab.carnetentretien.domain.dto.MaVoiture;
 import fr.jufab.carnetentretien.service.MaVoitureService;
 import org.jboss.logging.Logger;
 

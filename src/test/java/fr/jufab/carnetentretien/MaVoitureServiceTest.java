@@ -1,42 +1,56 @@
 package fr.jufab.carnetentretien;
 
+import fr.jufab.carnetentretien.domain.dto.MaVoiture;
+import fr.jufab.carnetentretien.service.MaVoitureService;
+import fr.jufab.carnetentretien.service.impl.MaVoitureServiceImpl;
+import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.arquillian.test.api.ArquillianResource;
+import org.jboss.shrinkwrap.api.Archive;
+import org.jboss.shrinkwrap.api.ArchivePaths;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wildfly.swarm.arquillian.DefaultDeployment;
+import org.wildfly.swarm.undertow.WARArchive;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
+import javax.inject.Inject;
+import java.text.SimpleDateFormat;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(Arquillian.class)
 @DefaultDeployment
 public class MaVoitureServiceTest {
 
-    @ArquillianResource
-    InitialContext context;
+    /*@ArquillianResource
+    InitialContext context;*/
 
-//    @Deployment(name = "MAVOITUREREPO", managed = false)
-//    public static Archive createDeployment() {
-//        WARArchive deployment = ShrinkWrap.create( WARArchive.class );
+    @Deployment//(name = "MAVOITUREREPO", managed = false)
+    public static Archive createDeployment() throws Exception {
+        return ShrinkWrap.create(WARArchive.class, "test.war")
+                .addAsWebInfResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"))
+                .addClass(MaVoitureService.class)
+                .addClass(MaVoiture.class)
+                .addClass(MaVoitureServiceImpl.class);
+        //WARArchive deployment = ShrinkWrap.create( WARArchive.class );
 //        deployment.addDefaultPackage();
-//        deployment.addPackage("fr.jufab.carnetentretien");
+//        deployment.addAsWebInfResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"));
 //        return deployment;
-//    }
-
-//    @Inject
-//    MaVoitureService maVoitureService;
-
-
-    @Test
-    public void testDataSourceIsBound() throws Exception {
-        DataSource ds = (DataSource) context.lookup("java:jboss/datasources/uneDatasource");
-        assertNotNull( ds );
     }
 
-    /*@Test
+    @Inject
+    MaVoitureService maVoitureService;
+
+
+//    @Test
+//    public void testDataSourceIsBound() throws Exception {
+//        DataSource ds = (DataSource) context.lookup("java:jboss/datasources/uneDatasource");
+//        assertNotNull( ds );
+//    }
+
+    @Test
     public void testCreateRepositoryMaVoiture() throws Exception {
         MaVoiture maVoiture = new MaVoiture();
         maVoiture.setModele("508 SW");
@@ -45,6 +59,6 @@ public class MaVoitureServiceTest {
         maVoiture = maVoitureService.persist(maVoiture);
         assertNotNull(maVoiture);
         assertTrue(maVoiture.getId()>0);
-    }*/
+    }
 
 }

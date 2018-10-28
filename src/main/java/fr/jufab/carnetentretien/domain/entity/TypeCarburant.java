@@ -1,4 +1,4 @@
-package fr.jufab.carnetentretien.domain;
+package fr.jufab.carnetentretien.domain.entity;
 
 
 import javax.persistence.*;

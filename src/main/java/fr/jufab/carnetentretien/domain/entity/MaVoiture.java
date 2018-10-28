@@ -1,4 +1,4 @@
-package fr.jufab.carnetentretien.domain;
+package fr.jufab.carnetentretien.domain.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,11 +22,11 @@ public class MaVoiture implements Serializable {
     @OneToOne(fetch = FetchType.LAZY)
     public ControleTechnique unControleTechnique;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     public MarqueVoiture maMarqueDeVoiture;
 
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     public TypeCarburant typeDeCarburant;
 
 
