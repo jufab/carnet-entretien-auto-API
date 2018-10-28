@@ -23,7 +23,7 @@ public class Entretien implements Serializable {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "typecarburant_entretien",
+            name = "TypeCarburant_Entretien",
             joinColumns = @JoinColumn(name = "typecarburant_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "entretien_id", referencedColumnName = "id"))
     public List<TypeCarburant> typeDeCarburant;

@@ -5,6 +5,7 @@ import fr.jufab.carnetentretien.domain.dto.MaVoiture;
 import fr.jufab.carnetentretien.service.MaVoitureService;
 import org.jboss.logging.Logger;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -13,9 +14,8 @@ import java.util.List;
 
 
 @Path("/voiture")
+@RequestScoped
 public class VoitureEndpoint {
-
-    private static final Logger logger = Logger.getLogger(VoitureEndpoint.class);
 
     @Inject
     private MaVoitureService maVoitureService;
