@@ -1,18 +1,11 @@
-package fr.jufab.carnetentretien;
+package fr.jufab.carnetentretien.service;
 
 import fr.jufab.carnetentretien.domain.dto.MaVoiture;
 import fr.jufab.carnetentretien.service.MaVoitureService;
-import fr.jufab.carnetentretien.service.impl.MaVoitureServiceImpl;
-import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.ArchivePaths;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.wildfly.swarm.arquillian.DefaultDeployment;
-import org.wildfly.swarm.undertow.WARArchive;
 
 import javax.inject.Inject;
 import java.text.SimpleDateFormat;
@@ -21,24 +14,26 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(Arquillian.class)
-@DefaultDeployment
+@DefaultDeployment(type = DefaultDeployment.Type.WAR)
 public class MaVoitureServiceTest {
 
     /*@ArquillianResource
     InitialContext context;*/
 
-    @Deployment//(name = "MAVOITUREREPO", managed = false)
-    public static Archive createDeployment() throws Exception {
-        return ShrinkWrap.create(WARArchive.class, "test.war")
-                .addAsWebInfResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"))
-                .addClass(MaVoitureService.class)
-                .addClass(MaVoiture.class)
-                .addClass(MaVoitureServiceImpl.class);
-        //WARArchive deployment = ShrinkWrap.create( WARArchive.class );
-//        deployment.addDefaultPackage();
-//        deployment.addAsWebInfResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"));
-//        return deployment;
-    }
+//    @Deployment//(name = "MAVOITUREREPO", managed = false)
+//    public static Archive<?> createDeployment() throws Exception {
+//        return ShrinkWrap.create(WebArchive.class, "maVoitureServiceTest.war")
+//                .addAsWebInfResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"))
+//                .addPackage(MaVoitureServiceTest.class.getPackage())
+//                .addAsResource("test-persistence.xml", "META-INF/persistence.xml");
+//                //.addClass(MaVoitureService.class)
+//                //.addClass(MaVoiture.class)
+//                //.addClass(MaVoitureServiceImpl.class);
+//        //WARArchive deployment = ShrinkWrap.create( WARArchive.class );
+////        deployment.addDefaultPackage();
+////        deployment.addAsWebInfResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"));
+////        return deployment;
+//    }
 
     @Inject
     MaVoitureService maVoitureService;
@@ -60,5 +55,7 @@ public class MaVoitureServiceTest {
         assertNotNull(maVoiture);
         assertTrue(maVoiture.getId()>0);
     }
+
+
 
 }

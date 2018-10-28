@@ -30,7 +30,7 @@ public class MaVoiture implements Serializable {
     public TypeCarburant typeDeCarburant;
 
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "uneVoiture", cascade = CascadeType.ALL,orphanRemoval= true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "uneVoiture", cascade = CascadeType.ALL/*,orphanRemoval= true*/)
     public List<CarnetEntretien> mesEntretiens;
 
     public MaVoiture() {

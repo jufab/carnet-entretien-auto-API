@@ -6,6 +6,9 @@ import fr.jufab.carnetentretien.domain.dto.mapper.MaVoitureSelmaMapper;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
+import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,10 +39,12 @@ public class MaVoitureRepository {
         entityManager.merge(entity);
     }
 
-
-    public void remove(MaVoiture entityDTO) {
-        fr.jufab.carnetentretien.domain.entity.MaVoiture entity = mapper.asMaVoiture(entityDTO);
-        entityManager.remove(entity);
+    public void remove(int id) {
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaDelete<fr.jufab.carnetentretien.domain.entity.MaVoiture> delete = cb.createCriteriaDelete(fr.jufab.carnetentretien.domain.entity.MaVoiture.class);
+        Root<fr.jufab.carnetentretien.domain.entity.MaVoiture> en = delete.from(fr.jufab.carnetentretien.domain.entity.MaVoiture.class);
+        delete.where(cb.equal(en.get("id"), id));
+        entityManager.createQuery(delete).executeUpdate();
     }
 
     @SuppressWarnings("unchecked")

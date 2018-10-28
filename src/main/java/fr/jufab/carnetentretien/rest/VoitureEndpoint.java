@@ -8,13 +8,14 @@ import org.jboss.logging.Logger;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 
-@Path("/ma-voiture")
-public class MaVoitureEndpoint {
+@Path("/voiture")
+public class VoitureEndpoint {
 
-    private static final Logger logger = Logger.getLogger(MaVoitureEndpoint.class);
+    private static final Logger logger = Logger.getLogger(VoitureEndpoint.class);
 
     @Inject
     private MaVoitureService maVoitureService;
@@ -41,5 +42,18 @@ public class MaVoitureEndpoint {
         return maVoitureService.persist(uneVoiture);
     }
 
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response updateMaVoiture(MaVoiture uneVoiture) {
+        maVoitureService.merge(uneVoiture);
+        return Response.ok().build();
+    }
 
+    @DELETE
+    @Path("/{id}")
+    public Response DeleteMaVoitureById(@PathParam("id") int id) {
+        maVoitureService.delete(id);
+        return Response.ok().build();
+    }
 }

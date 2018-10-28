@@ -29,4 +29,19 @@ public class MaVoitureServiceImpl implements MaVoitureService{
     public MaVoiture find(Integer id) {
         return maVoitureRepository.find(id);
     }
+
+    @Override
+    @Transactional
+    public void merge(MaVoiture maVoiture) {
+        maVoitureRepository.merge(maVoiture);
+    }
+
+    @Override
+    @Transactional
+    public void delete(int id) {
+        maVoitureRepository.remove(id);
+
+    }
+
+
 }

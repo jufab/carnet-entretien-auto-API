@@ -1,4 +1,4 @@
-package fr.jufab.carnetentretien.rest;
+package fr.jufab.carnetentretien;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

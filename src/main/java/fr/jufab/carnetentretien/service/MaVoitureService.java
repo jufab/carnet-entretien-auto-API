@@ -12,4 +12,8 @@ public interface MaVoitureService {
 
     MaVoiture find(Integer id);
 
+    void merge(MaVoiture maVoiture);
+
+    void delete(int id);
+
 }

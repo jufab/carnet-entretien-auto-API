@@ -19,6 +19,8 @@ swarm:
   logging: ${env.NIVEAU:DEBUG}
   http:
     port: ${env.LEPORT:7070}
+  debug:
+    port: ${env.DEBUG_PORT:5005}
   cdi:
     development-mode: true
     require-bean-descriptor: false
