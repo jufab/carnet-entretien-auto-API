@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Entity
-public class MaVoiture implements Serializable {
+public class Voiture implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int id;
@@ -23,7 +23,7 @@ public class MaVoiture implements Serializable {
     public ControleTechnique unControleTechnique;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    public MarqueVoiture maMarqueDeVoiture;
+    public MarqueVoiture uneMarqueDeVoiture;
 
 
     @OneToOne(fetch = FetchType.LAZY)
@@ -31,9 +31,9 @@ public class MaVoiture implements Serializable {
 
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "uneVoiture", cascade = CascadeType.ALL/*,orphanRemoval= true*/)
-    public List<CarnetEntretien> mesEntretiens;
+    public List<CarnetEntretien> desEntretiens;
 
-    public MaVoiture() {
+    public Voiture() {
     }
 
     public int getId() {
@@ -76,12 +76,12 @@ public class MaVoiture implements Serializable {
         this.unControleTechnique = unControleTechnique;
     }
 
-    public MarqueVoiture getMaMarqueDeVoiture() {
-        return maMarqueDeVoiture;
+    public MarqueVoiture getUneMarqueDeVoiture() {
+        return uneMarqueDeVoiture;
     }
 
-    public void setMaMarqueDeVoiture(MarqueVoiture maMarqueDeVoiture) {
-        this.maMarqueDeVoiture = maMarqueDeVoiture;
+    public void setUneMarqueDeVoiture(MarqueVoiture uneMarqueDeVoiture) {
+        this.uneMarqueDeVoiture = uneMarqueDeVoiture;
     }
 
     public TypeCarburant getTypeDeCarburant() {
@@ -92,21 +92,21 @@ public class MaVoiture implements Serializable {
         this.typeDeCarburant = typeDeCarburant;
     }
 
-    public List<CarnetEntretien> getMesEntretiens() {
-        return mesEntretiens;
+    public List<CarnetEntretien> getDesEntretiens() {
+        return desEntretiens;
     }
 
-    public void setMesEntretiens(List<CarnetEntretien> mesEntretiens) {
-        this.mesEntretiens = mesEntretiens;
+    public void setDesEntretiens(List<CarnetEntretien> desEntretiens) {
+        this.desEntretiens = desEntretiens;
     }
 
-    public MaVoiture(String modele, int annee, Date dateAchat, ControleTechnique unControleTechnique, MarqueVoiture maMarqueDeVoiture, TypeCarburant typeDeCarburant, List<CarnetEntretien> mesEntretiens) {
+    public Voiture(String modele, int annee, Date dateAchat, ControleTechnique unControleTechnique, MarqueVoiture uneMarqueDeVoiture, TypeCarburant typeDeCarburant, List<CarnetEntretien> desEntretiens) {
         this.modele = modele;
         this.annee = annee;
         this.dateAchat = dateAchat;
         this.unControleTechnique = unControleTechnique;
-        this.maMarqueDeVoiture = maMarqueDeVoiture;
+        this.uneMarqueDeVoiture = uneMarqueDeVoiture;
         this.typeDeCarburant = typeDeCarburant;
-        this.mesEntretiens = mesEntretiens;
+        this.desEntretiens = desEntretiens;
     }
 }

@@ -1,9 +1,7 @@
 package fr.jufab.carnetentretien.rest;
 
 import fr.jufab.carnetentretien.domain.dto.Entretien;
-import fr.jufab.carnetentretien.domain.dto.MaVoiture;
 import fr.jufab.carnetentretien.service.EntretienService;
-import org.jboss.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

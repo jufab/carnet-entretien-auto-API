@@ -17,10 +17,12 @@ public class EntretienRepository {
     @PersistenceContext(unitName = "MyPU")
     private EntityManager entityManager;
 
-    @Inject
     private EntretienSelmaMapper mapper;
 
-
+    @Inject
+    public EntretienRepository(EntretienSelmaMapper mapper) {
+        this.mapper = mapper;
+    }
 
     public Entretien find(int id) {
         return mapper.asEntretienDTO(entityManager.find(fr.jufab.carnetentretien.domain.entity.Entretien.class, id));
@@ -48,17 +50,17 @@ public class EntretienRepository {
 
     @SuppressWarnings("unchecked")
     public List<Entretien> findAll() {
-        List<fr.jufab.carnetentretien.domain.entity.Entretien> mesEntretiens = entityManager.createQuery("Select t from " + fr.jufab.carnetentretien.domain.entity.Entretien.class.getSimpleName() + " t").getResultList();
-        List<Entretien> mesEntretiensDTO = mesEntretiens.stream().map(entretien -> mapper.asEntretienDTO(entretien)).collect(Collectors.toList());
-        return mesEntretiensDTO;
+        List<fr.jufab.carnetentretien.domain.entity.Entretien> desEntretiens = entityManager.createQuery("Select t from " + fr.jufab.carnetentretien.domain.entity.Entretien.class.getSimpleName() + " t").getResultList();
+        List<Entretien> desEntretiensDTO = desEntretiens.stream().map(entretien -> mapper.asEntretienDTO(entretien)).collect(Collectors.toList());
+        return desEntretiensDTO;
     }
 
 
     @SuppressWarnings("unchecked")
     public List<Entretien> findInRange(int firstResult, int maxResults) {
         List<fr.jufab.carnetentretien.domain.entity.Entretien> mesEntretiens = entityManager.createQuery("Select t from " + fr.jufab.carnetentretien.domain.entity.Entretien.class.getSimpleName() + " t").setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
-        List<Entretien> mesEntretiensDTO = mesEntretiens.stream().map(entretien -> mapper.asEntretienDTO(entretien)).collect(Collectors.toList());
-        return mesEntretiensDTO;
+        List<Entretien> desEntretiensDTO = mesEntretiens.stream().map(entretien -> mapper.asEntretienDTO(entretien)).collect(Collectors.toList());
+        return desEntretiensDTO;
     }
 
     public long count() {

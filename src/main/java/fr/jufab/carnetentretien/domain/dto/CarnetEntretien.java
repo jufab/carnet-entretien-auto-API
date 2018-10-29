@@ -13,7 +13,7 @@ public class CarnetEntretien implements Serializable {
 
     public int nombreKmIntervention;
 
-    public MaVoiture uneVoiture;
+    public Voiture uneVoiture;
 
     public Entretien unEntretien;
 
@@ -21,7 +21,7 @@ public class CarnetEntretien implements Serializable {
 
     }
 
-    public CarnetEntretien(int id, Date dateEntretien, Date dateProchainEntretien, int nombreKmIntervention, MaVoiture uneVoiture, Entretien unEntretien) {
+    public CarnetEntretien(int id, Date dateEntretien, Date dateProchainEntretien, int nombreKmIntervention, Voiture uneVoiture, Entretien unEntretien) {
         this.id = id;
         this.dateEntretien = dateEntretien;
         this.dateProchainEntretien = dateProchainEntretien;
@@ -62,11 +62,11 @@ public class CarnetEntretien implements Serializable {
         this.nombreKmIntervention = nombreKmIntervention;
     }
 
-    public MaVoiture getUneVoiture() {
+    public Voiture getUneVoiture() {
         return uneVoiture;
     }
 
-    public void setUneVoiture(MaVoiture uneVoiture) {
+    public void setUneVoiture(Voiture uneVoiture) {
         this.uneVoiture = uneVoiture;
     }
 

@@ -1,7 +1,6 @@
 package fr.jufab.carnetentretien.service;
 
-import fr.jufab.carnetentretien.domain.dto.MaVoiture;
-import fr.jufab.carnetentretien.service.MaVoitureService;
+import fr.jufab.carnetentretien.domain.dto.Voiture;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 
 @RunWith(Arquillian.class)
 @DefaultDeployment(type = DefaultDeployment.Type.WAR)
-public class MaVoitureServiceTest {
+public class VoitureServiceTest {
 
     /*@ArquillianResource
     InitialContext context;*/
@@ -24,11 +23,11 @@ public class MaVoitureServiceTest {
 //    public static Archive<?> createDeployment() throws Exception {
 //        return ShrinkWrap.create(WebArchive.class, "maVoitureServiceTest.war")
 //                .addAsWebInfResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"))
-//                .addPackage(MaVoitureServiceTest.class.getPackage())
+//                .addPackage(VoitureServiceTest.class.getPackage())
 //                .addAsResource("test-persistence.xml", "META-INF/persistence.xml");
-//                //.addClass(MaVoitureService.class)
-//                //.addClass(MaVoiture.class)
-//                //.addClass(MaVoitureServiceImpl.class);
+//                //.addClass(VoitureService.class)
+//                //.addClass(Voiture.class)
+//                //.addClass(VoitureServiceImpl.class);
 //        //WARArchive deployment = ShrinkWrap.create( WARArchive.class );
 ////        deployment.addDefaultPackage();
 ////        deployment.addAsWebInfResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"));
@@ -36,7 +35,7 @@ public class MaVoitureServiceTest {
 //    }
 
     @Inject
-    MaVoitureService maVoitureService;
+    VoitureService voitureService;
 
 
 //    @Test
@@ -47,13 +46,13 @@ public class MaVoitureServiceTest {
 
     @Test
     public void testCreateRepositoryMaVoiture() throws Exception {
-        MaVoiture maVoiture = new MaVoiture();
-        maVoiture.setModele("508 SW");
-        maVoiture.setAnnee(2017);
-        maVoiture.setDateAchat(new SimpleDateFormat("dd/MM/YYYY").parse("21/06/2018"));
-        maVoiture = maVoitureService.persist(maVoiture);
-        assertNotNull(maVoiture);
-        assertTrue(maVoiture.getId()>0);
+        Voiture voiture = new Voiture();
+        voiture.setModele("508 SW");
+        voiture.setAnnee(2017);
+        voiture.setDateAchat(new SimpleDateFormat("dd/MM/YYYY").parse("21/06/2018"));
+        voiture = voitureService.persist(voiture);
+        assertNotNull(voiture);
+        assertTrue(voiture.getId()>0);
     }
 
 

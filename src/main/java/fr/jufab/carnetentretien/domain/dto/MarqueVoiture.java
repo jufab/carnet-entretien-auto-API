@@ -10,16 +10,17 @@ public class MarqueVoiture implements Serializable {
 
     public String nom;
 
-    public List<MaVoiture> mesVoitures;
+    public List<Voiture> desVoitures;
 
     public MarqueVoiture() {
     }
 
-    public MarqueVoiture(int id, String nom, List<MaVoiture> mesVoitures) {
+    public MarqueVoiture(int id, String nom, List<Voiture> desVoitures) {
         this.id = id;
         this.nom = nom;
-        this.mesVoitures = mesVoitures;
+        this.desVoitures = desVoitures;
     }
+
 
     public int getId() {
         return id;
@@ -37,12 +38,12 @@ public class MarqueVoiture implements Serializable {
         this.nom = nom;
     }
 
-    public List<MaVoiture> getMesVoitures() {
-        return mesVoitures;
+    public List<Voiture> getDesVoitures() {
+        return desVoitures;
     }
 
-    public void setMesVoitures(List<MaVoiture> mesVoitures) {
-        this.mesVoitures = mesVoitures;
+    public void setDesVoitures(List<Voiture> mesVoitures) {
+        this.desVoitures = mesVoitures;
     }
 
     @Override
@@ -52,12 +53,12 @@ public class MarqueVoiture implements Serializable {
         MarqueVoiture that = (MarqueVoiture) o;
         return id == that.id &&
                 Objects.equals(nom, that.nom) &&
-                Objects.equals(mesVoitures, that.mesVoitures);
+                Objects.equals(desVoitures, that.desVoitures);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nom, mesVoitures);
+        return Objects.hash(id, nom, desVoitures);
     }
 
     @Override
@@ -65,7 +66,7 @@ public class MarqueVoiture implements Serializable {
         return "MarqueVoiture{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
-                ", mesVoitures=" + mesVoitures +
+                ", mesVoitures=" + desVoitures +
                 '}';
     }
 }

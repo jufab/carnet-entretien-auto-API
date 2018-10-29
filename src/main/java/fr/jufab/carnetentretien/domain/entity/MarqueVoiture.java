@@ -13,15 +13,15 @@ public class MarqueVoiture implements Serializable {
 
     public String nom;
 
-    @OneToMany(mappedBy = "maMarqueDeVoiture")
-    public List<MaVoiture> mesVoitures;
+    @OneToMany(mappedBy = "uneMarqueDeVoiture")
+    public List<Voiture> desVoitures;
 
     public MarqueVoiture() {
     }
 
-    public MarqueVoiture(String nom, List<MaVoiture> mesVoitures) {
+    public MarqueVoiture(String nom, List<Voiture> desVoitures) {
         this.nom = nom;
-        this.mesVoitures = mesVoitures;
+        this.desVoitures = desVoitures;
     }
 
     public int getId() {
@@ -40,11 +40,11 @@ public class MarqueVoiture implements Serializable {
         this.nom = nom;
     }
 
-    public List<MaVoiture> getMesVoitures() {
-        return mesVoitures;
+    public List<Voiture> getDesVoitures() {
+        return desVoitures;
     }
 
-    public void setMesVoitures(List<MaVoiture> mesVoitures) {
-        this.mesVoitures = mesVoitures;
+    public void setDesVoitures(List<Voiture> desVoitures) {
+        this.desVoitures = desVoitures;
     }
 }

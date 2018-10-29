@@ -12,16 +12,16 @@ public class ControleTechnique implements Serializable {
 
     public Date prochainCT;
 
-    public MaVoiture maVoiture;
+    public Voiture uneVoiture;
 
     public ControleTechnique() {
     }
 
-    public ControleTechnique(int id, Date date, Date prochainCT, MaVoiture maVoiture) {
+    public ControleTechnique(int id, Date date, Date prochainCT, Voiture uneVoiture) {
         this.id = id;
         this.date = date;
         this.prochainCT = prochainCT;
-        this.maVoiture = maVoiture;
+        this.uneVoiture = uneVoiture;
     }
 
     public int getId() {
@@ -48,12 +48,12 @@ public class ControleTechnique implements Serializable {
         this.prochainCT = prochainCT;
     }
 
-    public MaVoiture getMaVoiture() {
-        return maVoiture;
+    public Voiture getUneVoiture() {
+        return uneVoiture;
     }
 
-    public void setMaVoiture(MaVoiture maVoiture) {
-        this.maVoiture = maVoiture;
+    public void setUneVoiture(Voiture uneVoiture) {
+        this.uneVoiture = uneVoiture;
     }
 
     @Override
@@ -64,12 +64,12 @@ public class ControleTechnique implements Serializable {
         return id == that.id &&
                 Objects.equals(date, that.date) &&
                 Objects.equals(prochainCT, that.prochainCT) &&
-                Objects.equals(maVoiture, that.maVoiture);
+                Objects.equals(uneVoiture, that.uneVoiture);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, date, prochainCT, maVoiture);
+        return Objects.hash(id, date, prochainCT, uneVoiture);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class ControleTechnique implements Serializable {
                 "id=" + id +
                 ", date=" + date +
                 ", prochainCT=" + prochainCT +
-                ", maVoiture=" + maVoiture +
+                ", uneVoiture=" + uneVoiture +
                 '}';
     }
 }

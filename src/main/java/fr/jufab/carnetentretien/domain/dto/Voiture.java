@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-public class MaVoiture implements Serializable {
+public class Voiture implements Serializable {
 
     public int id;
 
@@ -17,24 +17,24 @@ public class MaVoiture implements Serializable {
 
     public ControleTechnique unControleTechnique;
 
-    public MarqueVoiture maMarqueDeVoiture;
+    public MarqueVoiture uneMarqueDeVoiture;
 
     public TypeCarburant typeDeCarburant;
 
-    public List<CarnetEntretien> mesEntretiens;
+    public List<CarnetEntretien> desEntretiens;
 
-    public MaVoiture() {
+    public Voiture() {
     }
 
-    public MaVoiture(int id, String modele, int annee, Date dateAchat, ControleTechnique unControleTechnique, MarqueVoiture maMarqueDeVoiture, TypeCarburant typeDeCarburant, List<CarnetEntretien> mesEntretiens) {
+    public Voiture(int id, String modele, int annee, Date dateAchat, ControleTechnique unControleTechnique, MarqueVoiture maMarqueDeVoiture, TypeCarburant typeDeCarburant, List<CarnetEntretien> desEntretiens) {
         this.id = id;
         this.modele = modele;
         this.annee = annee;
         this.dateAchat = dateAchat;
         this.unControleTechnique = unControleTechnique;
-        this.maMarqueDeVoiture = maMarqueDeVoiture;
+        this.uneMarqueDeVoiture = maMarqueDeVoiture;
         this.typeDeCarburant = typeDeCarburant;
-        this.mesEntretiens = mesEntretiens;
+        this.desEntretiens = desEntretiens;
     }
 
     public int getId() {
@@ -77,12 +77,12 @@ public class MaVoiture implements Serializable {
         this.unControleTechnique = unControleTechnique;
     }
 
-    public MarqueVoiture getMaMarqueDeVoiture() {
-        return maMarqueDeVoiture;
+    public MarqueVoiture getUneMarqueDeVoiture() {
+        return uneMarqueDeVoiture;
     }
 
-    public void setMaMarqueDeVoiture(MarqueVoiture maMarqueDeVoiture) {
-        this.maMarqueDeVoiture = maMarqueDeVoiture;
+    public void setUneMarqueDeVoiture(MarqueVoiture uneMarqueDeVoiture) {
+        this.uneMarqueDeVoiture = uneMarqueDeVoiture;
     }
 
     public TypeCarburant getTypeDeCarburant() {
@@ -93,45 +93,45 @@ public class MaVoiture implements Serializable {
         this.typeDeCarburant = typeDeCarburant;
     }
 
-    public List<CarnetEntretien> getMesEntretiens() {
-        return mesEntretiens;
+    public List<CarnetEntretien> getDesEntretiens() {
+        return desEntretiens;
     }
 
-    public void setMesEntretiens(List<CarnetEntretien> mesEntretiens) {
-        this.mesEntretiens = mesEntretiens;
+    public void setDesEntretiens(List<CarnetEntretien> desEntretiens) {
+        this.desEntretiens = desEntretiens;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MaVoiture that = (MaVoiture) o;
+        Voiture that = (Voiture) o;
         return id == that.id &&
                 annee == that.annee &&
                 Objects.equals(modele, that.modele) &&
                 Objects.equals(dateAchat, that.dateAchat) &&
                 Objects.equals(unControleTechnique, that.unControleTechnique) &&
-                Objects.equals(maMarqueDeVoiture, that.maMarqueDeVoiture) &&
+                Objects.equals(uneMarqueDeVoiture, that.uneMarqueDeVoiture) &&
                 Objects.equals(typeDeCarburant, that.typeDeCarburant) &&
-                Objects.equals(mesEntretiens, that.mesEntretiens);
+                Objects.equals(desEntretiens, that.desEntretiens);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, modele, annee, dateAchat, unControleTechnique, maMarqueDeVoiture, typeDeCarburant, mesEntretiens);
+        return Objects.hash(id, modele, annee, dateAchat, unControleTechnique, uneMarqueDeVoiture, typeDeCarburant, desEntretiens);
     }
 
     @Override
     public String toString() {
-        return "MaVoiture{" +
+        return "Voiture{" +
                 "id=" + id +
                 ", modele='" + modele + '\'' +
                 ", annee=" + annee +
                 ", dateAchat=" + dateAchat +
                 ", unControleTechnique=" + unControleTechnique +
-                ", maMarqueDeVoiture=" + maMarqueDeVoiture +
+                ", maMarqueDeVoiture=" + uneMarqueDeVoiture +
                 ", typeDeCarburant=" + typeDeCarburant +
-                ", mesEntretiens=" + mesEntretiens +
+                ", desEntretiens=" + desEntretiens +
                 '}';
     }
 }

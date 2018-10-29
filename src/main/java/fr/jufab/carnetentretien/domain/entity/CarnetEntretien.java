@@ -18,15 +18,15 @@ public class CarnetEntretien implements Serializable {
     public int nombreKmIntervention;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    public MaVoiture uneVoiture;
+    public Voiture uneVoiture;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     public Entretien unEntretien;
 
     public CarnetEntretien() {
     }
 
-    public CarnetEntretien(Date dateEntretien, Date dateProchainEntretien, int nombreKmIntervention, MaVoiture uneVoiture, Entretien unEntretien) {
+    public CarnetEntretien(Date dateEntretien, Date dateProchainEntretien, int nombreKmIntervention, Voiture uneVoiture, Entretien unEntretien) {
         this.dateEntretien = dateEntretien;
         this.dateProchainEntretien = dateProchainEntretien;
         this.nombreKmIntervention = nombreKmIntervention;
@@ -66,11 +66,11 @@ public class CarnetEntretien implements Serializable {
         this.nombreKmIntervention = nombreKmIntervention;
     }
 
-    public MaVoiture getUneVoiture() {
+    public Voiture getUneVoiture() {
         return uneVoiture;
     }
 
-    public void setUneVoiture(MaVoiture uneVoiture) {
+    public void setUneVoiture(Voiture uneVoiture) {
         this.uneVoiture = uneVoiture;
     }
 
