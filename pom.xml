@@ -89,6 +89,11 @@
             <!--<artifactId>management-console</artifactId>-->
         <!--</dependency>-->
 
+        <!--<dependency>-->
+            <!--<groupId>io.thorntail</groupId>-->
+            <!--<artifactId>keycloak</artifactId>-->
+        <!--</dependency>-->
+
         <dependency>
             <groupId>io.thorntail</groupId>
             <artifactId>microprofile-config</artifactId>

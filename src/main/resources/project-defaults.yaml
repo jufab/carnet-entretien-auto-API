@@ -16,6 +16,20 @@ swarm:
 #      allowed-origins:
 #        - http://127.0.0.1:${env.LEPORT:7070}
 #      security-realm: ManagementRealm
+#  deployment:
+#    example-keycloak.war:
+#      web:
+#        login-config:
+#          auth-method: KEYCLOAK
+#        security-constraints:
+#        - url-pattern: /
+#          methods: [GET]
+#          roles: [admin]
+#    keycloak:
+#      multitenancy:
+#        paths:
+#          /app/secured: app-client-keycloak.json
+#          /app/health: health-client-keycloak.json
   logging: ${env.NIVEAU:DEBUG}
   http:
     port: ${env.LEPORT:7070}
