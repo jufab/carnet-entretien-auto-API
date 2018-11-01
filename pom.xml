@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.jufab</groupId>
     <artifactId>carnet-entretien-auto-API</artifactId>
-    <name>Thorntail Example</name>
+    <name>carnet-entretien-auto-API</name>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -89,10 +89,10 @@
             <!--<artifactId>management-console</artifactId>-->
         <!--</dependency>-->
 
-        <!--<dependency>-->
-            <!--<groupId>io.thorntail</groupId>-->
-            <!--<artifactId>keycloak</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>io.thorntail</groupId>
+            <artifactId>keycloak</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>io.thorntail</groupId>

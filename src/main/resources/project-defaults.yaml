@@ -16,15 +16,15 @@ swarm:
 #      allowed-origins:
 #        - http://127.0.0.1:${env.LEPORT:7070}
 #      security-realm: ManagementRealm
-#  deployment:
-#    example-keycloak.war:
-#      web:
-#        login-config:
-#          auth-method: KEYCLOAK
-#        security-constraints:
-#        - url-pattern: /
-#          methods: [GET]
-#          roles: [admin]
+  deployment:
+    carnet-entretien-auto-API.war:
+      web:
+        login-config:
+          auth-method: KEYCLOAK
+        security-constraints:
+        - url-pattern: /*
+          methods: [GET,POST,PUT,DELETE]
+          roles: [user]
 #    keycloak:
 #      multitenancy:
 #        paths:
@@ -35,9 +35,9 @@ swarm:
     port: ${env.LEPORT:7070}
   debug:
     port: ${env.DEBUG_PORT:5005}
-  cdi:
-    development-mode: true
-    require-bean-descriptor: false
+#  cdi:
+#    development-mode: true
+#    require-bean-descriptor: false
   datasources:
     jdbc-drivers:
       h2:
